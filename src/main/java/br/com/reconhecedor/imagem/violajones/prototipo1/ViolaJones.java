@@ -1,6 +1,5 @@
 package br.com.reconhecedor.imagem.violajones.prototipo1;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -18,7 +17,8 @@ public class ViolaJones {
 		FotoUtils fotoUtils = new FotoUtils();
 		double[][] fotoVetor = fotoUtils.transformarPhotoEmVetor(foto);
 		System.out.println("--");
-		fotoUtils.remontarFoto(fotoVetor);
+		fotoUtils.montarUmaNovaMatriz(fotoVetor);
+		//fotoUtils.remontarFoto(fotoVetor);
 
 	}
 	
