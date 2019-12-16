@@ -1,8 +1,6 @@
 package br.com.reconhecedor.imagem.violajones.prototipo1;
 
-import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
-import java.awt.image.ColorModel;
 import java.io.File;
 import java.io.IOException;
 
@@ -74,6 +72,7 @@ public class FotoUtils {
 
 						System.out.println("-->"+color+"  azul:"+(color & 0xff)+" green:"+((color & 0xff00) >> 8)+" red:"+((color & 0xff0000) >> 16));
 
+
 						matrizPrincipal[i][j] = tranformarPretoBranco(color);
 
 					}
@@ -83,6 +82,39 @@ public class FotoUtils {
 			}
 			return matrizPrincipal;
 	}
+	
+	public static double[][] montarUmaNovaMatriz(double[][] foto) {
+		int width = Parametros.PHOTO_H;
+		int height = Parametros.PHOTO_V;
+		int length = foto.length;
+		double[][] matrizPrincipal = new double[width][height];
+		
+			double[] linha = new double[Parametros.PHOTO_H];
+		
+		for (int i = 0; i < foto.length; i++) {
+			for (int j = 0; j < foto.length; j++) {
+				
+				for (int i2 = 0; i2 < i + 1; i2++) {
+					for (int j2 = 0; j2 < j + 1; j2++) {
+						
+						matrizPrincipal[i][j] += foto[i2][j2];				
+					}
+				}
+			}
+			
+		}
+		
+		return matrizPrincipal;
+	}
+	// 2  8  9  2  0
+	// 2  7  1  1  9
+	// 3  1  1  8  8  
+	// 2  5  7  7  1
+	
+	
+	//255   ---100
+	//value ---x
+	
 	
 	/**
 	 * Trata o pixel e normaliza para um pixel sem cores e padronizado
