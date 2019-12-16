@@ -15,18 +15,10 @@ public class FotoUtils {
 	public static final String PATH_PHOTO_RESULT = Parametros.PATH_PHOTO_RESULT;
 
 	public static void remontarFoto(double[][] foto) {
-		
-		//int width = foto2.length;
-		//int height = foto2[0].length;
-		
-		//	int m = 0;
+
 			int TAMANHO = Parametros.PHOTO_H;
-		//	int TAMANHO = height;
 		BufferedImage image = new BufferedImage(Parametros.PHOTO_H, Parametros.PHOTO_V, BufferedImage.TYPE_INT_RGB);
-		
-		//double[][] foto = renormalizePhoto(foto2);
-		
-		
+			
 		for (int k = 0; k < TAMANHO; k++) {
 			for (int k2 = 0; k2 < TAMANHO; k2++) {
 				int a2 = ((int)foto[k][k2]>>24) & 0xff; //alpha
@@ -34,7 +26,7 @@ public class FotoUtils {
 				int g2 = ((int)foto[k][k2]>>8) & 0xff; //green
 				int b2 = ((int)foto[k][k2]) & 0x0ff; //blue
 				int bbb =  (a2<<24) | (r2<<16) | (g2<<8) | b2; //red
-				//System.out.println(bbb+"--");
+				
 				image.setRGB(k, k2, bbb);
 			}
 			
@@ -73,7 +65,7 @@ public class FotoUtils {
 		
 
 			BufferedImage image = ImageIO.read(file);
-			//int k = 0;
+
 			try {
 				for (int i = 0; i < width; i++) {
 					for (int j = 0; j < height; j++) {
@@ -81,9 +73,9 @@ public class FotoUtils {
 						int color = image.getRGB(i, j);
 
 						System.out.println("-->"+color+"  azul:"+(color & 0xff)+" green:"+((color & 0xff00) >> 8)+" red:"+((color & 0xff0000) >> 16));
-						//matrizPrincipal[i][j] = p2;
+
 						matrizPrincipal[i][j] = tranformarPretoBranco(color);
-				//		k++;
+
 					}
 				}
 			}catch(Exception e){
@@ -98,7 +90,7 @@ public class FotoUtils {
 	 * 
 	 */
 	public static Integer tranformarPretoBranco(Integer p2) {
-		//	System.out.println(p2);
+
 		int a3 = (p2>>24)&0xff;
 		int r3 = (p2>>16)&0xff;
 		int g3 = (p2>>8)&0xff;
@@ -107,4 +99,64 @@ public class FotoUtils {
 		int pixel = (a3<<24) | (avg<<16) | (avg<<8) | avg;
 		return pixel;
 	}
+	/**
+	 *  1111111111
+	 *  1111111111
+	 *  0000000000
+	 *  0000000000
+	 *  
+	 */
+	public static double obterPorFeature1(double[][] janela, double treshold) {
+		double num = 0;
+		return num;
+//		int counter = 0;
+//		int TAMANHO = 0;
+//		double[][] fotoReturn = new double[TAMANHO][TAMANHO];
+//		for (int k = 0; k < TAMANHO; k++) {
+//			for (int k2 = 0; k2 < TAMANHO; k2++) {
+////				
+////				fotoReturn[k][k2] = foto[counter][0];
+////				counter++;
+//			}
+//			
+//		}
+//		return fotoReturn;
+	}
+	
+	/**
+	 *  1111100000
+	 *  1111100000
+	 *  0000011111
+	 *  0000011111
+	 */
+	public static double obterPorFeature2() {
+		double num = 0;
+		return num;
+	}
+	
+	/**
+	 *  1111100000
+	 *  1111100000
+	 *  1111100000
+	 *  1111100000
+	 *  
+	 */
+	public static double obterPorFeature3() {
+		double num = 0;
+		return num;
+	}
+	
+
+	/**
+	 *  1110000111
+	 *  1110000111
+	 *  1110000111
+	 *  1110000111
+	 *  
+	 */
+	public static double obterPorFeature4() {
+		double num = 0;
+		return num;
+	}
+	
 }

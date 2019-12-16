@@ -19,7 +19,7 @@ public class ViolaJones {
 		double[][] fotoVetor = fotoUtils.transformarPhotoEmVetor(foto);
 		System.out.println("--");
 		fotoUtils.remontarFoto(fotoVetor);
-
+		System.out.println("\n-- Evento finalizado com sucesso!");
 	}
 	
 	
