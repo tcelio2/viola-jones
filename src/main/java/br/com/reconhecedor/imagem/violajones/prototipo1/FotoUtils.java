@@ -48,7 +48,6 @@ public class FotoUtils {
 				fotoReturn[k][k2] = foto[counter][0];
 				counter++;
 			}
-			
 		}
 		return fotoReturn;
 	}
@@ -59,22 +58,13 @@ public class FotoUtils {
 		int height = Parametros.PHOTO_V;
 		
 		double[][] matrizPrincipal = new double[width][height];
-
-		
-
 			BufferedImage image = ImageIO.read(file);
-
 			try {
 				for (int i = 0; i < width; i++) {
 					for (int j = 0; j < height; j++) {
-
 						int color = image.getRGB(i, j);
-
 						System.out.println("-->"+color+"  azul:"+(color & 0xff)+" green:"+((color & 0xff00) >> 8)+" red:"+((color & 0xff0000) >> 16));
-
-
 						matrizPrincipal[i][j] = tranformarPretoBranco(color);
-
 					}
 				}
 			}catch(Exception e){
@@ -88,15 +78,12 @@ public class FotoUtils {
 		int height = Parametros.PHOTO_V;
 		int length = foto.length;
 		double[][] matrizPrincipal = new double[width][height];
-		
-			double[] linha = new double[Parametros.PHOTO_H];
+		double[] linha = new double[Parametros.PHOTO_H];
 		
 		for (int i = 0; i < foto.length; i++) {
 			for (int j = 0; j < foto.length; j++) {
-				
 				for (int i2 = 0; i2 < i + 1; i2++) {
 					for (int j2 = 0; j2 < j + 1; j2++) {
-						
 						matrizPrincipal[i][j] += foto[i2][j2];				
 					}
 				}
@@ -190,5 +177,20 @@ public class FotoUtils {
 		double num = 0;
 		return num;
 	}
+	
+	public static Double calcularThreshold(double[][] janela) {
+		
+		for (int i = 0; i < janela.length; i++) {
+			
+			
+			
+		}
+		return null;
+	}
+	
+	public static void calculaPeso(double[][] janela, double[][] valor) {
+		
+	}
+	
 	
 }

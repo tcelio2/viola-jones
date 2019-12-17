@@ -8,17 +8,17 @@ import br.com.reconhecedor.imagem.principal.Parametros;
 
 public class ViolaJones {
 
-	public final static String PATH = Parametros.PATH;
-	public final static int PHOTO_H = Parametros.PHOTO_H;
-	public final static int PHOTO_V = Parametros.PHOTO_V;
+	public static final String PATH = Parametros.PATH;
+	public static final int PHOTO_H = Parametros.PHOTO_H;
+	public static final int PHOTO_V = Parametros.PHOTO_V;
 	
 	public static void main(String[] args) throws IOException {
 		File foto = new File(Parametros.PATH_PHOTO);
-		FotoUtils fotoUtils = new FotoUtils();
-		double[][] fotoVetor = fotoUtils.transformarPhotoEmVetor(foto);
+		//FotoUtils fotoUtils = new FotoUtils();
+		double[][] fotoVetor = FotoUtils.transformarPhotoEmVetor(foto);
 		System.out.println("--");
 
-		fotoUtils.remontarFoto(fotoVetor);
+		FotoUtils.remontarFoto(fotoVetor);
 		System.out.println("\n-- Evento finalizado com sucesso!");
 
 	}
